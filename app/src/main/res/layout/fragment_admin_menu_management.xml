@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_cream"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/layoutAdminFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="12dp">
+
+        <EditText
+            android:id="@+id/edtAdminSearchMenu"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@color/search_bar_bg"
+            android:hint="Tìm kiếm món ăn..."
+            android:paddingHorizontal="16dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_dark"
+            android:importantForAutofill="no"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressAdminMenuLoading"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/lvAdminMenuProducts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/layoutAdminFilter"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:scrollbars="none"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdminAddProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:contentDescription="Thêm món"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/teal_primary"
+        app:tint="@color/white"/>
+
+</RelativeLayout>

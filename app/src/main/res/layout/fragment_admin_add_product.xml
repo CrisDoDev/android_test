@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_cream"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Cấu hình danh mục &amp; Topping"
+            android:textStyle="bold"
+            android:textColor="@color/teal_primary"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spnAdminCategory"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chọn các Topping áp dụng cho đợt món này:"
+            android:textSize="13sp"
+            android:textColor="@color/text_muted"/>
+
+        <LinearLayout
+            android:id="@+id/layoutAdminToppingContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp"
+            android:background="@color/white"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/search_bar_bg"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Nhập thông tin nước uống"
+            android:textStyle="bold"
+            android:textColor="@color/teal_primary"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/edtAdminProductName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Tên nước (Ví dụ: Hồng trà sữa)"
+            android:background="@color/white"
+            android:paddingHorizontal="12dp"
+            android:layout_marginBottom="8dp"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/edtAdminProductPrice"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Giá cơ bản (đ)"
+            android:background="@color/white"
+            android:paddingHorizontal="12dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="number"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <Button
+                android:id="@+id/btnAdminSelectImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thêm ảnh"
+                android:backgroundTint="@color/orange_accent"/>
+
+            <ImageView
+                android:id="@+id/imgAdminProductPreview"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="16dp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"
+                android:visibility="visible"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnAdminAddToDraft"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="➕ Thêm vào danh sách chờ"
+            android:backgroundTint="@color/text_dark"
+            android:textColor="@color/white"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/teal_primary"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvAdminDraftTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh sách chờ lưu (0 món)"
+            android:textStyle="bold"
+            android:textColor="@color/text_dark"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/layoutAdminDraftContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnAdminSaveAll"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="🚀 XÁC NHẬN LƯU TẤT CẢ LÊN HỆ THỐNG"
+            android:backgroundTint="@color/teal_primary"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+</ScrollView>

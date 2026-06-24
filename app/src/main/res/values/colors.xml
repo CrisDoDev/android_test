@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Màu nền, màu cơ bản và chủ đề  -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="teal_primary">#2D937F</color>
+    <color name="orange_accent">#E47A33</color>
+    <color name="bg_cream">#FDF8EE</color>
+    <!--  Màu chữ  -->
+    <color name="text_dark">#1A1A1A</color>
+    <color name="text_muted">#666666</color>
+    <color name="text_price">#2D937F</color>
+    <!--  Màu thành phần  -->
+    <color name="search_bar_bg">#F2EAE0</color>
+    <color name="star_yellow">#FFC107</color>
+    <color name="card_bg_light">#F5F5F5</color>
+    <!--  Nguyễn Tuấn Kiệt thêm  -->
+    <color name="bg_menu">#E8F5E9</color>
+    <color name="bg_order">#E3F2FD</color>
+    <color name="bg_promo">#FFF3E0</color>
+    <color name="bg_review">#F3E5F5</color>
+    <color name="bg_customer">#E0F7FA</color>
+    <color name="bg_revenue">#FFEBEE</color>
+</resources>

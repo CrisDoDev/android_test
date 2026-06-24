@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    Tạo tính đồng bộ cho nhóm icon điều hướng-->
+    <item android:state_checked="true" android:color="@color/teal_primary" />
+    <item android:state_checked="false" android:color="@color/text_muted" />
+</selector>
