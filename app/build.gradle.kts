@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     // Cấu hình cho firebase
-    id("com.google.gms.google-services") version "4.4.1" apply false
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -57,7 +57,8 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     // Cloudinary
     implementation("com.github.bumptech.glide:glide:4.16.0")
