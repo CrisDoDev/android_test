@@ -1,8 +1,11 @@
 package com.example.mobileapp.api;
 
 import com.example.mobileapp.model.Category;
+import com.example.mobileapp.model.CheckResponse;
 import com.example.mobileapp.model.Product;
 import com.example.mobileapp.model.Topping;
+import com.example.mobileapp.model.User;
+
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +18,21 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
+
 public interface ApiService {
+
+    // Check xem email này có ai đăng ký dưới MySQL chưa
+    @GET("auth/check-email")
+    Call<CheckResponse> checkEmail(@Query("email") String email);
+
+    // Check xem số điện thoại này có ai dùng dưới MySQL chưa
+    @GET("auth/check-phone")
+    Call<CheckResponse> checkPhone(@Query("phone") String phone);
+
+    // Đẩy thông tin user từ Firebase/Google xuống MySQL để lưu hoặc đăng nhập
+    @POST("auth/sync-user")
+    Call<User> syncUser(@Body User request);
+
     /**
      * Nguyễn Tuấn Kiệt
      * lấy sản phẩm bán chạy nhất.

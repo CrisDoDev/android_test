@@ -55,6 +55,7 @@ dependencies {
 
     // Jetpack Datastore
     implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("androidx.datastore:datastore-preferences-rxjava3:1.1.1")
 
     // Firebase
     implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
@@ -62,4 +63,9 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     // Cloudinary
     implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation("com.google.android.material:material:1.9.0")
+
+    // thu vien Gmail dang nhap Google
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
 }
