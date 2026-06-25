@@ -4,17 +4,21 @@ import com.google.gson.annotations.SerializedName;
 
 public class Topping {
     private int idTopping;
+    private int categoryId;
     private String toppingName;
     private double price;
+    private String imageUrl;
     private int status;
     private int isDeleted;
     // Biến phụ kiểm tra xem khách hàng có tích chọn Topping này ở màn hình chi tiết hay không
     private boolean isSelected = false;
     public Topping(){}
-    public Topping(int idTopping, String toppingName, double price, int status, int isDeleted, boolean isSelected) {
+    public Topping(int idTopping, int categoryId, String toppingName, double price, String imageUrl, int status, int isDeleted, boolean isSelected) {
         this.idTopping = idTopping;
+        this.categoryId = categoryId;
         this.toppingName = toppingName;
         this.price = price;
+        this.imageUrl = imageUrl;
         this.status = status;
         this.isDeleted = isDeleted;
         this.isSelected = isSelected;
@@ -26,6 +30,14 @@ public class Topping {
 
     public void setIdTopping(int idTopping) {
         this.idTopping = idTopping;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getToppingName() {
@@ -42,6 +54,14 @@ public class Topping {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getStatus() {
