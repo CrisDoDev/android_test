@@ -69,12 +69,14 @@ public class RegisterFragment extends Fragment {
         tvPhoneValidationError = view.findViewById(R.id.tv_phone_validation_error);
 
         setupRealTimeValidation();
+        setupPasswordFocusValidation();
         setupFormTextWatchers(); // Lang nghe de mo/khoa nut bấm hop ly
 
         btnRegister.setOnClickListener(v -> handleRegister());
 
         tvLogin.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.auth_fragment_container, new LoginFragment()).commit());
+        validateForm();
 
         return view;
     }
@@ -112,6 +114,33 @@ public class RegisterFragment extends Fragment {
                     tvPhoneValidationError.setVisibility(View.GONE);
                     isPhoneValid = false;
                     validateForm();
+                }
+            }
+        });
+    }
+
+    private void setupPasswordFocusValidation() {
+        // Kiểm tra lỗi mật khẩu khi người dùng rời khỏi ô nhập Mật khẩu
+        etPassword.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) { // Khi người dùng bỏ focus ô này để bấm ô khác
+                String pass = etPassword.getText().toString().trim();
+                if (!pass.isEmpty() && pass.length() < 6) {
+                    etPassword.setError("Mật khẩu phải từ 6 ký tự trở lên!");
+                } else {
+                    etPassword.setError(null);
+                }
+            }
+        });
+
+        // Kiểm tra lỗi khớp mật khẩu khi người dùng rời khỏi ô Xác nhận mật khẩu
+        etConfirmPassword.setOnFocusChangeListener((v, hasFocus) -> {
+            if (!hasFocus) {
+                String pass = etPassword.getText().toString().trim();
+                String confirm = etConfirmPassword.getText().toString().trim();
+                if (!confirm.isEmpty() && !pass.equals(confirm)) {
+                    etConfirmPassword.setError("Mật khẩu xác nhận không trùng khớp!");
+                } else {
+                    etConfirmPassword.setError(null);
                 }
             }
         });
@@ -189,6 +218,11 @@ public class RegisterFragment extends Fragment {
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
         String phone = etPhoneNumber.getText().toString().trim();
+
+        if (fullName.isEmpty() || email.isEmpty() || password.isEmpty() || phone.isEmpty()) {
+            Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(requireActivity(), task -> {
             if (task.isSuccessful()) {
