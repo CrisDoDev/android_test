@@ -259,7 +259,7 @@ public class RegisterFragment extends Fragment {
                 mainHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
                         User resUser = response.body();
-                        userDatastore.saveUser(resUser.getIdUser(), resUser.getFirebaseUid(), resUser.getFullName(), resUser.getEmail(), resUser.getRoleId());
+                        userDatastore.saveUser(resUser.getIdUser(), resUser.getFirebaseUid(), resUser.getFullName(), resUser.getEmail(), resUser.getPhoneNumber(), resUser.getRoleId());
                         Toast.makeText(getActivity(), "Dang ky hoan tat!", Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(getActivity(), MainActivity.class);

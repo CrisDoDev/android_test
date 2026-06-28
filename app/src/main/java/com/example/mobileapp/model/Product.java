@@ -7,6 +7,7 @@ public class Product {
     private int categoryId;
     private String productName;
     private double basePrice;
+    private double finalPrice;      // BỔ SUNG: Giá cuối cùng sau khi giảm
     private String imageUrl;
     private String description;
     private int status;
@@ -98,4 +99,8 @@ public class Product {
     public void setRatingStars(double ratingStars) {
         this.ratingStars = ratingStars;
     }
+
+    public double getFinalPrice() { return finalPrice; }
+    public void setFinalPrice(double finalPrice) { this.finalPrice = finalPrice; }
 }
+

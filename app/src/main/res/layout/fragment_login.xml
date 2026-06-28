@@ -128,6 +128,19 @@
                 android:foreground="?attr/selectableItemBackground"/>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_skip_to_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="Quay lại trang chủ"
+            android:textColor="@color/text_muted"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"/>
+
     </LinearLayout>
 
 </ScrollView>

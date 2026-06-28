@@ -37,10 +37,14 @@
                 android:src="@drawable/ic_cart"
                 app:tint="#4A4A4A"/>
             <ImageView
+                android:id="@+id/imgHomeAccount"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:src="@drawable/ic_account"
-                app:tint="#4A4A4A"/>
+                app:tint="#4A4A4A"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground" />
         </LinearLayout>
     </RelativeLayout>
 

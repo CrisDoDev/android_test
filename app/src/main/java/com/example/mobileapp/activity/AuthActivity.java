@@ -108,7 +108,7 @@ public class AuthActivity extends AppCompatActivity {
                 mainHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
                         User resUser = response.body();
-                        userDatastore.saveUser(resUser.getIdUser(), resUser.getFirebaseUid(), resUser.getFullName(), resUser.getEmail(), resUser.getRoleId());
+                        userDatastore.saveUser(resUser.getIdUser(), resUser.getFirebaseUid(), resUser.getFullName(), resUser.getEmail(), resUser.getPhoneNumber(), resUser.getRoleId());
                         Toast.makeText(AuthActivity.this, "Dang nhap Google thanh cong!", Toast.LENGTH_SHORT).show();
                         navigateToHome(resUser.getRoleId());
                     }

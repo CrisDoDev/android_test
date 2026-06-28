@@ -80,6 +80,13 @@ public class LoginFragment extends Fragment {
         tvRegister.setOnClickListener(v -> requireActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.auth_fragment_container, new RegisterFragment()).addToBackStack(null).commit());
 
+        view.findViewById(R.id.tv_skip_to_home).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), com.example.mobileapp.activity.MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            requireActivity().finish();
+        });
+
         return view;
     }
 
@@ -108,7 +115,7 @@ public class LoginFragment extends Fragment {
                 mainHandler.post(() -> {
                     if (response.isSuccessful() && response.body() != null) {
                         User resUser = response.body();
-                        userDatastore.saveUser(resUser.getIdUser(), resUser.getFirebaseUid(), resUser.getFullName(), resUser.getEmail(), resUser.getRoleId());
+                        userDatastore.saveUser(resUser.getIdUser(), resUser.getFirebaseUid(), resUser.getFullName(), resUser.getEmail(), resUser.getPhoneNumber(), resUser.getRoleId());
                         Toast.makeText(getActivity(), "Dang nhap thanh cong!", Toast.LENGTH_SHORT).show();
                         navigateToHome(resUser.getRoleId());
                     } else {

@@ -3,14 +3,24 @@ package com.example.mobileapp.model;
 import com.google.gson.annotations.SerializedName;
 
 public class Review {
+    @SerializedName(value = "idReview", alternate = {"id_review"})
     private int idReview;
+    @SerializedName(value = "userId", alternate = {"user_id"})
     private int userId;
+
+    @SerializedName("userName")
+    private String userName;
+    @SerializedName(value = "productId", alternate = {"product_id"})
     private int productId;
+    @SerializedName(value = "orderId", alternate = {"order_id"})
     private int orderId;
+    @SerializedName(value = "ratingStars", alternate = {"rating_stars"})
     private int ratingStars;
     private String comment;
+    @SerializedName(value = "adminReply", alternate = {"admin_reply"})
     private String adminReply;
     private int status;
+    @SerializedName(value = "createdAt", alternate = {"created_at"})
     private String createdAt;
 
     public Review(){}
@@ -97,4 +107,7 @@ public class Review {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
+
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
 }

@@ -70,18 +70,41 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp">
 
-            <TextView
-                android:id="@+id/tvPrice"
+            <!-- Khối chứa 2 loại giá: Xếp hàng ngang  -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
-                android:text="35k"
-                android:textColor="#008080"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:layout_toStartOf="@id/layoutRatingContainer"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
+                <!-- 1. Giá sau khi giảm: To hơn -->
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="35k"
+                    android:textColor="#2D937F"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- 2. Giá gốc ban đầu: Nhỏ hơn, thanh mảnh màu xám nhạt -->
+                <TextView
+                    android:id="@+id/tvOriginalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="45k"
+                    android:textColor="#757575"
+                    android:textSize="11sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Khối chứa số sao bên phải -->
             <LinearLayout
+                android:id="@+id/layoutRatingContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -93,7 +116,8 @@
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:src="@android:drawable/btn_star_big_on"
-                    app:tint="#F4A261" />
+                    app:tint="#F4A261"
+                    android:contentDescription="Sao đánh giá" />
 
                 <TextView
                     android:id="@+id/tvRating"

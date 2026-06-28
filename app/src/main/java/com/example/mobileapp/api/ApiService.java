@@ -3,6 +3,7 @@ package com.example.mobileapp.api;
 import com.example.mobileapp.model.Category;
 import com.example.mobileapp.model.CheckResponse;
 import com.example.mobileapp.model.Product;
+import com.example.mobileapp.model.Review;
 import com.example.mobileapp.model.Topping;
 import com.example.mobileapp.model.User;
 
@@ -32,6 +33,18 @@ public interface ApiService {
     // Đẩy thông tin user từ Firebase/Google xuống MySQL để lưu hoặc đăng nhập
     @POST("auth/sync-user")
     Call<User> syncUser(@Body User request);
+
+    //bổ sung: Lấy sản phẩm theo mã danh mục
+    @GET("products/category/{id}")
+    Call<List<Product>> getProductsByCategory(@Path("id") int categoryId);
+
+    //bổ sung: Lấy thông tin chi tiết của 1 sản phẩm
+    @GET("products/{id}")
+    Call<Product> getProductById(@Path("id") int productId);
+
+    //bổ sung: Lấy danh sách bình luận của 1 sản phẩm
+    @GET("reviews/product/{id}")
+    Call<List<Review>> getReviewsByProduct(@Path("id") int productId);
 
     /**
      * Nguyễn Tuấn Kiệt

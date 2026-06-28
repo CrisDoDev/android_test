@@ -8,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.mobileapp.R;
+import com.example.mobileapp.fragment.CategoryProductsFragment;
 import com.example.mobileapp.model.Category;
 import java.util.List;
 
@@ -56,8 +58,15 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
                 .error(android.R.drawable.stat_notify_error)
                 .into(holder.imgCategory);
 
+        //Bấm vào danh mục sẽ mở Fragment danh sách sản phẩm
         holder.itemView.setOnClickListener(v -> {
-            Toast.makeText(context, "Bạn chọn: " + category.getCategoryName(), Toast.LENGTH_SHORT).show();
+            if (context instanceof AppCompatActivity) {
+                AppCompatActivity activity = (AppCompatActivity) context;
+                activity.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, CategoryProductsFragment.newInstance(category.getIdCategory(), category.getCategoryName()))
+                        .addToBackStack(null)
+                        .commit();
+            }
         });
     }
 

@@ -56,6 +56,13 @@ public class HomeFragment extends Fragment {
         fetchProductsFromDatabase();
         fetchCategoriesFromDatabase();
 
+        view.findViewById(R.id.imgHomeAccount).setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new com.example.mobileapp.fragment.AccountFragment())
+                    .addToBackStack(null) // Bấm nút Back trên điện thoại sẽ quay về Trang Chủ
+                    .commit();
+        });
+
         return view;
     }
 
